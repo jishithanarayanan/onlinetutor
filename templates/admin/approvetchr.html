@@ -1,0 +1,53 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="approve_teacherpost#about">
+  <table width="647" height="226" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th height="55" colspan="10" scope="row">Approve Teacher's </th>#}
+{#    </tr>#}
+    <tr>
+    <td>Name</td>
+      <td colspan="12"><input type="text" name="t1" required/>
+          <input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+    <tr>
+      <th width="40" height="38" scope="row"><strong>Name</strong></th>
+      <td width="55"><strong>Address</strong></td>
+      <td width="75"><strong>Qualification</strong></td>
+      <td width="60"> <strong>Proof</strong></td>
+      <td width="67"><strong>Experience</strong></td>
+      <td width="42"><strong>Phone no </strong></td>
+      <td width="33"><strong>Email</strong></td>
+      <td width="35"><strong>photo</strong></td>
+      <td width="69"><strong>Status</strong></td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <th scope="row">&nbsp;{{ i.firstname }} {{ i.lastname }}</th>
+      <td>&nbsp;{{ i.place }} {{ i.post }} {{ i.pin }}</td>
+      <td>&nbsp;{{ i.qualification }}</td>
+      <td><a href="{{ i.proof.url }}" download="">{{ i.proof }}</a></td>
+      <td>&nbsp;{{ i.experience }}</td>
+{#        <td><img src="../media/{{ i.proof }}" width="100" height="100"></td>#}
+      <td>&nbsp;{{ i.phonenumber }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+      <td><a href="{{ i.photo.url }}" download="">{{ i.photo }}</a></td>
+
+                {% if i.LOGIN.type == 'pending' %}
+
+        <td><p><a href="/acceptteacher/{{ i.LOGIN.id }}" class="btn btn-success">Accept</a></p>
+            <p><a href="/rejectteacher/{{ i.LOGIN.id }}" class="btn btn-success">Reject</a></p>  </td>
+
+                    {% elif i.LOGIN.type == 'reject' %}
+            <td>reject </td>
+            {% else %}
+            <td>accept</td>
+    </tr>
+          {% endif %}
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

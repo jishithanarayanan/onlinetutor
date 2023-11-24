@@ -1,0 +1,31 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="add_testpost">
+  <table width="200" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th colspan="2" scope="col">Add Test </th>#}
+{#    </tr>#}
+    <tr>
+      <th scope="row">Test</th>
+
+
+
+    <td><input type="text" name="textarea" required/></td>
+    </tr>
+
+
+    <tr>
+      <th scope="row">Details</th>
+
+            <td><input type="text" name="textarea2" required/></td>
+
+    </tr>
+    <tr align="center">
+      <th colspan="2" scope="row"><input type="submit" name="Submit" value="Add" class="btn btn-success"/></th>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="block_studentpost#about">
+  <table width="489" border="1" cellpadding="4" class="table table-bordered">
+    <tr>
+{#      <th colspan="5" scope="row"><p>Block/Unblock Students </p>#}
+{#          <td colspan="30">#}
+
+        <td>Enter Teacher Name</td>
+            <td><select name="select" required>
+          <option value="">Select</option>
+            {% for i in data %}
+          <option value="{{ i.id }}"{% if  i.id  ==  t  %} selected {% endif %} >{{ i.firstname }}</option>
+{% endfor %}
+    </select>
+            <input type="submit" name="Submit" value="search" class="btn btn-success"/>
+    </td>
+    </tr>
+    <tr>
+      <th width="53" scope="row">Student</th>
+      <th width="53" scope="row">Standard</th>
+      <th width="53" scope="row">Phone No</th>
+      <th width="94">Email</th>
+      <th width="172"><strong>Status</strong></th>
+    </tr>
+  {% if a == 1 %}
+
+  {% for i in val %}
+    <tr>
+      <th scope="row">&nbsp;{{ i.STUDENT_ID.firstname }} {{ i.STUDENT_ID.lastname }}</th>
+      <th scope="row">&nbsp;{{ i.STUDENT_ID.standard }}</th>
+      <th height="77" scope="row">&nbsp;{{ i.STUDENT_ID.phonenumber }}</th>
+      <td>&nbsp;{{ i.STUDENT_ID.email }}</td>
+                        {% if i.STUDENT_ID.LOGIN.type == 'student' %}
+
+                            <td><p><a href="/blockkkstudent/{{ i.STUDENT_ID.LOGIN.id }}" class="btn btn-block">Block</a></p></td>
+                            {% else %}
+
+          <td><p><a href="/unblockstudent/{{ i.STUDENT_ID.LOGIN.id }}" class="btn btn-block">Unblock</a></p></td>
+
+      {% endif %}
+      </tr>
+  {% endfor %}
+  {% else %}
+
+  {% for i in val %}
+    <tr>
+      <th scope="row">&nbsp;{{ i.firstname }} {{ i.STUDENT_ID.lastname }}</th>
+      <th scope="row">&nbsp;{{ i.standard }}</th>
+      <th height="77" scope="row">&nbsp;{{ i.phonenumber }}</th>
+      <td>&nbsp;{{ i.email }}</td>
+                        {% if i.LOGIN.type == 'student' %}
+
+                            <td><p><a href="/blockkkstudent/{{ i.LOGIN.id }}" class="btn btn-block">Block</a></p></td>
+                            {% else %}
+
+          <td><p><a href="/unblockstudent/{{ i.LOGIN.id }}" class="btn btn-block">Unblock</a></p></td>
+
+      {% endif %}
+      </tr>
+  {% endfor %}
+  {% endif %}
+  </table>
+</form>
+</body>
+{% endblock %}

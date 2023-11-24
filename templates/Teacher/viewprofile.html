@@ -1,0 +1,67 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+    <form action="/update_teacher#about" method="post" >
+
+<body>
+<h2 style="text-align:center">MY PROFILE </h2>
+
+<div class="card">
+  <img src="{{ val.photo.url }}" alt="" style="width:100%">
+  <h3><b>{{ val.firstname }}&nbsp;{{ val.lastname }}</b></h3>
+  <p class="title"></p>
+
+    <p>Contact : {{ val.phonenumber }}</p>
+    <p>Experience : {{ val.experience }}</p>
+    <p>Email : {{ val.email }}</p>
+    <p>Place : {{ val.place }}</p>
+    <p>Post  : {{ val.post }} </p>
+    <p>Pin   : {{ val.pin }}</p>
+    <p>Qualification   : {{ val.qualification }}</p>
+    <p>Proof   : <a href="media/{{ val.proof }}" download="">{{ val.proof }}</a></p>
+    <p><button onclick="">UPDATE</button></p>
+
+</div>
+</body>
+{#</html>#}
+{% endblock %}

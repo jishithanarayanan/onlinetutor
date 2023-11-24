@@ -1,0 +1,25 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="283" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th colspan="2" scope="col">View Salary  </th>#}
+{#    </tr>#}
+    <tr>
+      <th width="86">Date</th>
+      <th width="169">Salary</th>
+      <th width="169">Status</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.salary }}</td>
+      <td>&nbsp;{{ i.status }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

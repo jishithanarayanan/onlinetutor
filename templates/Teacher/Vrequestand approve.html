@@ -1,0 +1,39 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th colspan="3" scope="col">View Request and Approve </th>#}
+{#    </tr>#}
+    <tr>
+      <th>Date</th>
+      <th>Student</th>
+      <th>Class</th>
+      <th>Status</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.STUDENT_ID.firstname }} {{ i.STUDENT_ID.lastname }}</td>
+    <td>{{ i.STUDENT_ID.standard }}</td>
+
+                        {% if i.status == 'requested' %}
+
+      <td><p><a href="/acceptrequest/{{ i.id }}" class="btn btn-success">Approve</a></p>
+      <p><a href="/rejectrequest/{{ i.id }}" class="btn btn-success">Reject</a></p></td>
+
+
+                              {% elif i.status == 'reject' %}
+            <td>Reject </td>
+            {% else %}
+            <td>Accept</td>
+    </tr>
+              {% endif %}
+
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

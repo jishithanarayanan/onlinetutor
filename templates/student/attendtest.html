@@ -1,0 +1,47 @@
+{% extends 'student/studentindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="attendtestsearch">
+
+
+  <table width="200" border="1" class="table table-bordered">
+  
+<tr>
+{#      <th colspan="5" scope="row"><p>Block/Unblock Students </p>#}
+{#          <td colspan="30">#}
+
+        <td>Test</td>
+            <td><select name="select" required>
+
+            {% for i in data %}
+          <option >{{ i.test }}</option>
+{% endfor %}
+    </select>
+            <input type="submit" name="Submit" value="search" class="btn btn-success" required/>
+    </td>
+    </tr>
+
+    <tr>
+      <td>Slno</td>
+      <td>Date</td>
+      <td>Test</td>
+	  <td>Test Details</td>
+      <td></td>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.test }}</td>
+	  <td>&nbsp;{{ i.details }}</td>
+      <td><a href="attendtest/{{i.id}}" class="btn btn-success">Attendexam</a></td>
+
+    </tr>
+      {% endfor %}
+    
+  </table>
+</form>
+</body>
+{% endblock %}

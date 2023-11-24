@@ -1,0 +1,44 @@
+{% extends 'student/studentindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="viewresultpost">
+
+
+  <table width="200" border="1" class="table table-bordered">
+
+{#  <tr>#}
+{##}
+{#        <td>Test</td>#}
+{#            <td><select name="select">#}
+{#          <option>Select</option>#}
+{#            {% for i in data %}#}
+{#                <option value="{{ i.id }}" {% if  i.id  ==  t  %} selected {% endif %} >{{ i.test }}</option>#}
+{##}
+{#{% endfor %}#}
+{#    </select>#}
+{#            <input type="submit" name="Submit" value="search" class="btn btn-success"/>#}
+{#    </td>#}
+{#    </tr>#}
+
+
+    <tr>
+        <td>Test</td>
+
+      <td>Result</td>
+
+    
+    </tr>
+  {% for i in data %}
+
+    <tr>
+    <td>{{ i.test }}</td>
+
+      <td>&nbsp;{{ i.res }}</td>
+    </tr>
+{% endfor  %}
+    
+  </table>
+</form>
+</body>
+{% endblock %}

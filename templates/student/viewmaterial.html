@@ -1,0 +1,37 @@
+{% extends 'student/studentindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="viewmaterialpost#about">
+
+  <table width="200" border="1" class="table table-bordered">
+
+    <tr>
+      <td colspan="4"><input type="date" name="textfield" value="{{ d }}" required/>
+          <input type="submit" name="Submit" value="Search" class="btn btn-success" required/></td>
+    </tr>
+
+    <tr>
+      <th>Slno</th>
+      <th>Date</th>
+      <th>Subject</th>
+      <th>Notes</th>
+
+    
+    </tr>
+
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.subject }}</td>
+        <td><a href="{{ i.notes.url }}" download="">{{ i.notes }}</a></td>
+
+
+    </tr>
+      {% endfor %}
+    
+  </table>
+</form>
+</body>
+{% endblock %}

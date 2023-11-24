@@ -1,0 +1,37 @@
+{% extends 'student/studentindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+
+
+  <table width="200" border="1" class="table table-bordered">
+  
+
+
+    <tr>
+      <th>Teacher</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Fee Status</th>
+
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ i.TEACHER_ID.firstname }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.status }}</td>
+
+      {% if i.status == 'Accept' %}
+
+{#      <td>{{ i.TEACHER_ID.firstname }}</td>#}
+      <td><a href="/user_pay_proceed1/{{i.id}}" class="btn btn-success">Pay</a></td>{% endif %}
+
+    </tr>
+      {% endfor %}
+    
+  </table>
+</form>
+</body>
+{% endblock %}

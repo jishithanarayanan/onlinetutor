@@ -1,0 +1,50 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/edit_Questionspost">
+  <table width="200" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th colspan="2" scope="col">Edit Questions </th>#}
+{#    </tr>#}
+    <tr>
+      <td>Test</td>
+      <td><label for="textfield"></label>
+      <select name="select" required>
+
+            {% for i in val %}
+          <option value="{{ i.id }}" {% if i.id == data.TEST_ID.id  %} selected {% endif %}>{{ i.test }}</option>
+{% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">Questions</th>
+      <td><input type="text" name="textfield"  value="{{ data.questions }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Option1</th>
+      <td><input type="text" name="textfield2" value="{{ data.option1 }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Option2</th>
+      <td><input type="text" name="textfield3" value="{{ data.option2 }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Option3</th>
+      <td><input type="text" name="textfield4"  value="{{ data.option3 }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Option4</th>
+      <td><input type="text" name="textfield5" value="{{ data.option4 }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Answer</th>
+      <td><input type="text" name="textfield6" value="{{ data.result }}" required /></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="Submit" value="Edit" class="btn btn-success"/></th>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

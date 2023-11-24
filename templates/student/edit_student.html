@@ -1,0 +1,90 @@
+{% extends 'student/studentindex.html' %}
+{% block body %}
+<form action="/upd_stu#about" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1"  class="table table-striped">
+    <tr>
+      <td>First Name </td>
+      <td><label>
+        <input type="text" name="textfield" value="{{ val.firstname }}" class="form-control"required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Last Name </td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ val.lastname }}" class="form-control"required pattern="[A-Z a-z.]{1,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Age</td>
+      <td><label>
+        <input type="text" name="textfield3" value="{{ val.age }}"required pattern="[0-9]{1,2}"/>
+      </label></td>
+    </tr>
+      <tr>
+          <td><p>Gender</p></td>
+          <td><input type="radio" name="gender" id="radio2" value="{{ val.male }}" checked/>
+              <label for="radio" >Male</label><br />
+               <input type="radio" name="gender" id="radio2" value="{{ val.female }}" />
+               <label for="radio"> Female</label><br />
+               <input type="radio" name="gender" id="radio3" value="{{ val.other }}" />
+               <label for="radio" class="border" >Other</label></td>
+                                </tr>>
+
+    <tr>
+      <td>Place</td>
+      <td><label>
+        <input type="text" name="textfield4" value="{{ val.place }}"  class="form-control"required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label>
+        <input type="text" name="textfield5" value="{{ val.post }}" class="form-control"required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label>
+        <input type="text" name="textfield6" value="{{ val.pin }}" class="form-control"required pattern="[0-9]{6}" />
+      </label></td>
+    </tr>
+      <tr>
+
+
+ <td>Email</td>
+      <td><label>
+        <input type="text" name="textfield8" value="{{ val.email }}" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label>
+        <input type="text" name="textfield7" value="{{ val.phonenumber }}" class="form-control"required pattern ="[6789][0-9]{9}" />
+      </label></td>
+    </tr>
+
+
+      <tr>
+      <td>Standard</td>
+      <td><label>
+        <input type="text" name="stan" value="{{ val.standard }}" class="form-control" required pattern="[0-9]{1}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label><img src="../media/{{ val.photo }}" width="100dp" height="100dp"/>
+        <input type="file" name="file" value="{{ val.photo.url }}" />
+      </label></td>
+    </tr>
+
+
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Update" class="btn btn-Primary" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

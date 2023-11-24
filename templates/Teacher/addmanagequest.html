@@ -1,0 +1,52 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="add_managequestpost">
+  <table width="253" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th colspan="8" scope="col">Add and Manage Questions </th>#}
+{#    </tr>#}
+    <tr>
+      <td colspan="8">Test:
+        <select name="crop" required>
+
+            {% for i in val %}
+          <option value="{{ i.id }}" {% if  i.id  ==  t  %} selected {% endif %} >{{ i.test }}</option>
+{% endfor %}
+      </select>
+        <input type="submit" name="Submit" value="Search" class="btn btn-success" /></td>
+    </tr>
+    <tr>
+      <td width="12">Sl.No</td>
+      <td width="12">Test</td>
+      <td width="12">Questions</td>
+      <td width="12">option1</td>
+      <td width="12">option2</td>
+      <td width="12">option3</td>
+      <td width="12">option4</td>
+      <td width="12">Answers</td>
+      <td width="69">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.TEST_ID.test }}</td>
+      <td>&nbsp;{{ i.questions }}</td>
+      <td>&nbsp;{{ i.option1 }}</td>
+      <td>&nbsp;{{ i.option2 }}</td>
+      <td>&nbsp;{{ i.option3 }}</td>
+      <td>&nbsp;{{ i.option4 }}</td>
+      <td>&nbsp;{{ i.result }}</td>
+
+        <td><p><a href="/edit_Questions/{{ i.id }}#about" class="btn btn-success">Edit</a></p></td>
+      <td><p><a href="/deleteqs/{{ i.id }}#about" class="btn btn-success">Delete</a></p></td>
+    </tr>
+      {% endfor %}
+    <tr align="center">
+            <td><p><a href="add_Questions#about" class="btn btn-success">Add</a></p>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

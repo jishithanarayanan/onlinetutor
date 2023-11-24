@@ -1,0 +1,36 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/edit_salarypost#about">
+<table width="200" border="1" cellpadding="4" class="table table-bordered">
+{#  <tr>#}
+{#    <th colspan="2" scope="col">Add Salary </th>#}
+{#  </tr>#}
+  <tr>
+    <tr>
+    <td>Teacher</td>
+      <td><label for="textfield"></label>
+      <select name="select" required>
+
+            {% for i in val %}
+          <option value="{{ i.id }}" {% if i.id == data.TEACHER_ID.id  %} selected {% endif %}>{{ i.firstname }}</option>
+{% endfor %}
+      </select> </td>
+    </tr>
+  <tr>
+    <th scope="row">Salary</th>
+    <td><input type="text" name="textfield2" value="{{ data.salary }}" required/></td>
+  </tr>
+{#  <tr>#}
+{#    <th scope="row">Details</th>#}
+{#    <td><input type="text" name="textfield3" /></td>#}
+{#  </tr>#}
+  <tr>
+    <th colspan="2" scope="row"><input type="submit" name="Submit" value="Edit" class="btn btn-success"/></th>
+  </tr>
+</table>
+</form>
+</body>
+
+{% endblock %}

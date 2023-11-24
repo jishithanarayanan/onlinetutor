@@ -1,0 +1,77 @@
+{#{% extends 'admin/adminindex.html' %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="Add_managesalarypost">#}
+{#<table width="320" border="1" cellpadding="4" class="table table-bordered">#}
+{##}
+{#  <tr>#}
+{#    <td colspan="4">Teacher#}
+{#      <input type="text" name="textfield" />#}
+{#        <input type="submit" name="Submit" value="Search" class="btn btn-success" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td width="50">Teacher</td>#}
+{#    <td width="35">Salary</td>#}
+{#    <td width="46">Date</td>#}
+{#    <td width="35">&nbsp;</td>#}
+{#    <td width="50"></td>#}
+{#  </tr>#}
+{#    {% for i in data %}#}
+{#  <tr>#}
+{#    <td>&nbsp;{{ i.TEACHER_ID.firstname }}</td>#}
+{#    <td>&nbsp;{{ i.salary }}</td>#}
+{#    <td>&nbsp;{{ i.date }}</td>#}
+{#      <td><p><a href="/edit_salary/{{ i.id }}" class="btn btn-success">Edit</a></p></td>#}
+{#    <td><p><a href="/deletesalary/{{ i.id }}" class="btn btn-danger">delete</a></p></td>#}
+{#    <td><a href="#">pay</a></td>#}
+{#  </tr>#}
+{#    {% endfor %}#}
+{#  <tr>#}
+{#      <td colspan="4"><p><a href="View_salary" class="btn btn-success">Add New</a></p></td>#}
+{#  </tr>#}
+{#</table>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+
+
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/viewsalarytopaycode#about">
+{% csrf_token %}
+
+  <table width="200" border="1" class="table table-bordered">
+
+
+<tr>
+    <td>Enter a Teacher's Name:</td>
+      <td colspan="12"><input type="text" name="textfield" required/>
+          <input type="submit" name="button" id="button" value="Search" class="btn btn-success" required/></td>
+    </tr>
+    <tr>
+      <th>Teacher</th>
+      <th>Salary</th>
+      <th>Date</th>
+	  <th>Status</th>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ i.TEACHER_ID.firstname }}</td>
+      <td>&nbsp;{{ i.salary }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+	  <td>{% if i.s == "0" %}<a href="/user_pay_proceed/{{i.id}}/{{i.salary}}" class="btn btn-success">pay</a>{%  else %} Paid {% endif %}</td>
+
+
+
+    </tr>
+      {% endfor %}
+
+
+  </table>
+</form>
+</body>
+{% endblock %}

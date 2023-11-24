@@ -1,0 +1,44 @@
+{% extends 'student/studentindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="sendfeedbackpost">
+  <table width="200" border="1" class="table table-bordered">
+    <tr>
+      <td>Teacher</td>
+      <td><label for="textfield"></label>
+      <select name="select" required>
+          <option value="">Select</option>
+            {% for i in data %}
+          <option value="{{ i.id }}">{{ i.firstname }}</option>
+{% endfor %}
+      </select> </td>
+    </tr>
+	<tr>
+      <td>Feedback</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield" id="textfield2" required/></td>
+    </tr>
+    <tr>
+      <td>Rating</td>
+      <td><label for="textfield3"></label>
+        <select name="rating" required>
+          <option>1</option>
+          <option>1.5</option>
+          <option>2</option>
+          <option>2.5</option>
+          <option>3</option>
+          <option>3.5</option>
+          <option>4</option>
+          <option>4.5</option>
+          <option>5</option>
+        </select></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><input type="submit" name="button" id="button" value="Send" class="btn btn-success" />
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/Snd_complaintreplypost#about">
+  <table width="419" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th scope="row"><p>Send Reply </p>#}
+{#      </th>#}
+{#    </tr>#}
+    <tr>
+        <th width="403" scope="row">Reply</th>
+        <td><input type="text" name="textarea" required></td>
+    </tr>
+    <tr>
+      <th scope="row"><input type="submit" name="Submit" value="send" class="btn btn-success"/></th>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

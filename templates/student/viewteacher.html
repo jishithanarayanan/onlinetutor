@@ -1,0 +1,38 @@
+{% extends 'student/studentindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-bordered">
+    <tr>
+      <th>Sl No</th>
+      <th>Teacher</th>
+      <th>Qualification</th>
+        <th>Fee</th>
+      <th></th>
+    </tr>
+
+
+      {% for i in data %}
+          {% if i.LOGIN.type == 'teacher'  %}
+
+    <tr>
+
+     <td>{{ forloop.counter }}</td>
+     <td>{{ i.firstname }}</td>
+     <td>{{ i.qualification }}</td>
+        <td>250</td>
+{#                                {% if i.status == 'pending' %}#}
+      <td><a href="/sendrequest/{{ i.id }}" class="btn btn-success">Request</a></td>
+
+{#                                    {% elif i.status == 'requested' %}#}
+{#            <td>Requested </td>#}
+{#            {% else %}#}
+{#            <td>Not Requested</td>#}
+    </tr>
+          {% endif %}
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="419" border="1" cellpadding="4">
+    <tr>
+      <th scope="row"><p>Chat With Admin </p></th>
+    </tr>
+    <tr>
+      <th width="403" scope="row">ChatBox
+        <textarea name="textarea"></textarea></th>
+    </tr>
+    <tr>
+      <th scope="row"><input type="submit" name="Submit" value="send" /></th>
+    </tr>
+  </table>
+</form>
+ <div class="input-group">
+							<a href="/teacher_home" style="color: white">Go to Home</a>
+    </div>
+</body>
+{% endblock %}

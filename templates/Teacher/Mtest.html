@@ -1,0 +1,33 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="add_test#about">
+  <table width="274" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th colspan="4" scope="col">Manage Test </th>#}
+{#    </tr>#}
+    <tr>
+      <td >Date</td>
+      <td >Test</td>
+      <td >Test-details</td>
+      <td >&nbsp;</td>
+    </tr>
+
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.test }}</td>
+      <td>&nbsp;{{ i.details }}</td>
+      <td><p><a href="/edit_test/{{ i.id }}#about" class="btn btn-success">Edit</a></p></td>
+        <td><p><a href="/deletetest/{{ i.id }}#about" class="btn btn-danger">Delete</a></p></td>
+
+    </tr>
+      {% endfor %}
+    <tr align="center">
+      <td colspan="4"><input type="submit" name="Submit" value="Add" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

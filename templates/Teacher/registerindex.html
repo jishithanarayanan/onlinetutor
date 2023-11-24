@@ -1,0 +1,135 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<html lang="en">
+<head>
+<title>Teacher Register</title>
+
+	<!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Space Register Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+
+	<!-- css files -->
+	<link href="/static/registerstd/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- css files -->
+
+	<!-- Online-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+	<!-- //Online-fonts -->
+
+</head>
+<body>
+
+	<!-- Main Content -->
+	<div class="main">
+		<div class="main-w3l">
+			<h1 class="logo-w3">Teacher Register Form</h1>
+			<div class="w3layouts-main">
+				<h2><span>Register now</span></h2>
+					<form action="registercode" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+						<input placeholder="First Name" name="fname" type="text" id="textfield" required pattern="[A-Z a-z.]{2,}">
+						<input placeholder="Last Name" name="lname" type="text" id="textfield2" required pattern="[A-Z a-z.]{1,}">
+{#						<input placeholder="Age" name="age" type="text" id="textfield3" required pattern="[0-9]{2,}">#}
+{#						<input placeholder="Gender" name="gender" type="radio" id="textfield3" required pattern="[A-Z a-z.]{2,}">#}
+
+                        <div>
+
+                            <table>
+                                <tr>
+                                    <td><p>Gender</p></td>
+                                    <td><input type="radio" name="gender" id="radio2" value="male" checked/>
+                                 <label for="radio" >
+                                     Male</label><br />
+        <input type="radio" name="gender" id="radio2" value="female" />
+      <label for="radio"> Female</label><br />
+      <input type="radio" name="gender" id="radio3" value="other" />
+      <label for="radio" class="border" >Other</label></td>
+                                </tr>
+
+                            </table>
+
+
+                            <div></div>
+
+						<input placeholder="Place" name="place" type="text" id="textfield3" required pattern="[A-Z a-z.]{2,}">
+						<input placeholder="Post" name="post" type="text" id="textfield3" required pattern="[A-Z a-z.]{2,}">
+						<input placeholder="Pin" name="pin" type="text" id="textfield3" required pattern="[0-9]{6}">
+                            <input placeholder="Qualification" name="qlfn" type="text" id="textfield5" required>
+
+						<input placeholder="Email" name="email" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}">
+
+                        <input placeholder="Phone Number" name="phone" type="text" id="textfield5" pattern="[6789][0-9]{9}">
+                        <input placeholder="Experience" name="exp" type="text" id="textfield5" required>
+
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td><p>Id Proof</p></td>
+                                        <td><input placeholder="Upload Proof" name="proof" type="file" id="textfield5" required ></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td><p>Image</p></td>
+                                        <td><input placeholder="Upload image" name="photo" type="file" id="textfield5" required ></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+						<input placeholder="Username" name="uname" type="text"  id="textfield6" required="">
+						<input placeholder="Password" name="pswd" type="password"  id="textfield7" required="" >
+						<input type="submit" value="Register" name="login">
+                        </div>
+					</form>
+			</div>
+			<!-- //main -->
+
+			<!-- password-script -->
+{#			<script>#}
+{#				window.onload = function () {#}
+{#					document.getElementById("password1").onchange = validatePassword;#}
+{#					document.getElementById("password2").onchange = validatePassword;#}
+{#				}#}
+{##}
+{#				function validatePassword() {#}
+{#					var pass2 = document.getElementById("password2").value;#}
+{#					var pass1 = document.getElementById("password1").value;#}
+{#					if (pass1 != pass2)#}
+{#						document.getElementById("password2").setCustomValidity("Passwords Don't Match");#}
+{#					else#}
+{#						document.getElementById("password2").setCustomValidity('');#}
+{#					//empty string means no validation error#}
+{#				}#}
+{#			</script>#}
+			<!-- //password-script -->
+
+			<!--footer-->
+			<div class="footer-w3l">
+{#				<p>&copy; 2018 Space Register Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>#}
+			</div>
+			<!--//footer-->
+
+		</div>
+	</div>
+	<!-- //Main Content -->
+
+</body>
+</html>

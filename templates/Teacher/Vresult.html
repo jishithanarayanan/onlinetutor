@@ -1,0 +1,41 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="View_resultpost#about">
+  <table width="255" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th colspan="4" scope="col">View Result </th>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="4"><input type="date" name="textfield" required/>#}
+{#          <input type="submit" name="Submit" value="Search" class="btn btn-success"/></td>#}
+{#    </tr>#}
+  <tr>
+      <td colspan="8">Test:
+        <select name="crop" required>
+
+            {% for i in val %}
+          <option value="{{ i.id }}" {% if  i.id  ==  t  %} selected {% endif %} >{{ i.test }}</option>
+{% endfor %}
+      </select>
+        <input type="submit" name="Submit" value="Search" class="btn btn-success" /></td>
+    </tr>
+
+
+    <tr>
+
+      <td width="37">Student</td>
+      <td width="92">Result</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+
+      <td>&nbsp;{{ i.STUDENT_ID.firstname }}{{ i.STUDENT_ID.lastname }}</td>
+      <td>&nbsp;{{ i.tm }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

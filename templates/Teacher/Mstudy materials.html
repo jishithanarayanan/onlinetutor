@@ -1,0 +1,32 @@
+{% extends 'Teacher/teacherindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="add_materials#about">
+  <table width="200" border="1" cellpadding="4" class="table table-bordered">
+{#    <tr>#}
+{#      <th colspan="4" scope="col">Manage Study Materials </th>#}
+{#    </tr>#}
+    <tr>
+      <td>Date</td>
+      <td>Subject</td>
+      <td>Notes</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.subject }}</td>
+        <td><a href="{{ i.notes.url }}" download="">{{ i.notes }}</a></td>
+      <td><a href="/deletematerial/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+    <tr align="center">
+      <td colspan="4"><p><a href="#"></a>
+        <input type="submit" name="Submit" value="Add Notes" class="btn btn-success"/>
+      </p></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
